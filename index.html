@@ -834,8 +834,37 @@
 
         <!-- Stellar Voyager (NDA) — FEATURED -->
         <div class="project-card featured" data-tags="game">
-          <div class="project-img-wrap">
-            <div class="project-placeholder featured">🌌</div>
+          <div class="project-img-wrap" style="aspect-ratio:unset;min-height:280px;overflow:hidden;position:relative;background:linear-gradient(135deg,#020a18 0%,#071428 40%,#0a1e3a 100%);">
+            <!-- Star field -->
+            <canvas id="nda-stars" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+            <!-- Constellation lines SVG overlay -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.18;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 800 280">
+              <line x1="120" y1="60"  x2="260" y2="140" stroke="#4f8ef7" stroke-width="0.8"/>
+              <line x1="260" y1="140" x2="400" y2="80"  stroke="#4f8ef7" stroke-width="0.8"/>
+              <line x1="400" y1="80"  x2="540" y2="180" stroke="#4f8ef7" stroke-width="0.8"/>
+              <line x1="540" y1="180" x2="680" y2="100" stroke="#4f8ef7" stroke-width="0.8"/>
+              <line x1="680" y1="100" x2="750" y2="200" stroke="#4f8ef7" stroke-width="0.8"/>
+              <line x1="260" y1="140" x2="180" y2="220" stroke="#4f8ef7" stroke-width="0.8"/>
+              <line x1="400" y1="80"  x2="320" y2="200" stroke="#4f8ef7" stroke-width="0.8"/>
+              <circle cx="120" cy="60"  r="3" fill="#4f8ef7" opacity="0.8"/>
+              <circle cx="260" cy="140" r="4" fill="#4f8ef7" opacity="0.9"/>
+              <circle cx="400" cy="80"  r="3.5" fill="#7ab3ff" opacity="0.9"/>
+              <circle cx="540" cy="180" r="3" fill="#4f8ef7" opacity="0.8"/>
+              <circle cx="680" cy="100" r="4" fill="#4f8ef7" opacity="0.9"/>
+              <circle cx="750" cy="200" r="2.5" fill="#4f8ef7" opacity="0.7"/>
+              <circle cx="180" cy="220" r="3" fill="#4f8ef7" opacity="0.7"/>
+              <circle cx="320" cy="200" r="2.5" fill="#4f8ef7" opacity="0.7"/>
+            </svg>
+            <!-- App Store badge + label -->
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+              <div style="font-size:3.5rem;filter:drop-shadow(0 0 24px rgba(79,142,247,0.4));">🚀</div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(79,142,247,0.7);border:1px solid rgba(79,142,247,0.3);padding:4px 14px;border-radius:20px;">Live on the App Store</span>
+                <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(240,240,240,0.25);">Full details under NDA</span>
+              </div>
+            </div>
+            <!-- Bottom fade -->
+            <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to top,rgba(13,13,18,0.9),transparent);pointer-events:none;"></div>
           </div>
           <div class="project-body">
             <div class="project-tags">
@@ -850,25 +879,8 @@
           </div>
         </div>
 
-        <!-- RepClash -->
-        <div class="project-card" data-tags="animation game">
-          <div class="project-img-wrap">
-            <img src="repclash.png" alt="RepClash" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="project-placeholder default-placeholder" style="display:none;background:linear-gradient(135deg,#1a0a00 0%,#2d1200 40%,#3d1a00 100%);">🥊</div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">Animation</span>
-              <span class="project-tag">Mobile</span>
-              <span class="project-tag">In Progress</span>
-            </div>
-            <p class="project-name">RepClash — Fitness Fighting Game</p>
-            <p class="project-desc">Creating all character animations for a mobile fighting game that uses the phone camera to track real-life pushups, translating physical workouts into in-game character strength. Responsible for the full animation pipeline — rigging, keyframe animation, and combat cycles.</p>
-          </div>
-        </div>
-
         <!-- Prisoner of Light -->
-        <div class="project-card" data-tags="game animation">
+        <div class="project-card" data-tags="game animation video">
           <div class="project-img-wrap">
             <img src="https://static.wixstatic.com/media/d0e373_94642f38583e415c9e82a09bc4b489b6~mv2.jpg" alt="Prisoner of Light" loading="lazy">
           </div>
@@ -883,6 +895,92 @@
             <div class="project-link-row">
               <a href="https://mega567835.itch.io/pol" class="project-link" target="_blank" rel="noopener">Play on itch.io ↗</a>
               <a href="https://youtu.be/vZhbM7oklNk" class="project-link" target="_blank" rel="noopener">Trailer ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RepClash -->
+        <div class="project-card featured" data-tags="animation video">
+          <div class="project-img-wrap" style="aspect-ratio:unset;height:auto;">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:#000;">
+              <video src="repclash_anim1.mp4" poster="repclash_thumb1.jpg" muted loop playsinline
+                style="width:100%;aspect-ratio:16/9;object-fit:cover;cursor:pointer;display:block;"
+                onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+              <video src="repclash_anim2.mp4" poster="repclash_thumb2.jpg" muted loop playsinline
+                style="width:100%;aspect-ratio:16/9;object-fit:cover;cursor:pointer;display:block;"
+                onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+              <video src="repclash_anim3.mp4" poster="repclash_thumb3.jpg" muted loop playsinline
+                style="width:100%;aspect-ratio:16/9;object-fit:cover;cursor:pointer;display:block;"
+                onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+              <video src="repclash_anim4.mp4" poster="repclash_thumb4.jpg" muted loop playsinline
+                style="width:100%;aspect-ratio:16/9;object-fit:cover;cursor:pointer;display:block;"
+                onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+              <video src="repclash_anim5.mp4" poster="repclash_thumb5.jpg" muted loop playsinline
+                style="width:100%;aspect-ratio:16/9;object-fit:cover;cursor:pointer;display:block;"
+                onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+              <video src="repclash_anim6.mp4" poster="repclash_thumb6.jpg" muted loop playsinline
+                style="width:100%;aspect-ratio:16/9;object-fit:cover;cursor:pointer;display:block;"
+                onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Character Animation</span>
+              <span class="project-tag">Rigging</span>
+              <span class="project-tag">Blender</span>
+              <span class="project-tag">Mobile</span>
+              <span class="project-tag">In Progress</span>
+            </div>
+            <p class="project-name">RepClash — Fitness Fighting Game Character Animations</p>
+            <p class="project-desc">Full character animation pipeline for a mobile fighting game where the phone camera tracks real-life pushups, translating physical reps into in-game combat power. Responsible for rigging, keyframe animation, and polished combat cycles — hover each clip to preview.</p>
+          </div>
+        </div>
+
+        <!-- Ranger Raccoon -->
+        <div class="project-card" data-tags="game">
+          <div class="project-img-wrap">
+            <img src="https://static.wixstatic.com/media/d0e373_6dda6a9de52049a48bf3d2473311b417~mv2.png" alt="Ranger Raccoon" loading="lazy">
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Game Dev</span>
+              <span class="project-tag">Unity</span>
+              <span class="project-tag">Grant-Funded</span>
+            </div>
+            <p class="project-name">The Adventures of Ranger Raccoon</p>
+            <p class="project-desc">Technical developer on a UT Austin Health IT SPARK Grant-funded respiratory health game. Designed minigame mechanics integrating gameplay with a confidential medical device, collaborating with a 10-member interdisciplinary team.</p>
+            <div class="project-link-row">
+              <a href="https://www.notion.so/The-Adventures-of-Ranger-Raccoon-HQ-2-0-6a4781f3b2554aaab887bc28dac091a9" class="project-link" target="_blank" rel="noopener">Project Docs ↗</a>
+              <a href="https://youtu.be/ZIG-dgIBAoY" class="project-link" target="_blank" rel="noopener">Final Trailer ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inside Out Drone Show -->
+        <div class="project-card featured" data-tags="3d video">
+          <div class="project-img-wrap" style="aspect-ratio:unset;position:relative;background:#000;">
+            <video
+              src="insideout_preview.mp4"
+              poster="insideout_thumb.jpg"
+              muted loop playsinline
+              style="width:100%;display:block;max-height:420px;object-fit:cover;"
+              onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0">
+            </video>
+            <div style="position:absolute;bottom:12px;right:14px;font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);pointer-events:none;">Preview — hover to play</div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Visual Developer</span>
+              <span class="project-tag">Drone Show</span>
+              <span class="project-tag">Projection Design</span>
+              <span class="project-tag">Verge Aero</span>
+              <span class="project-tag">Live Production</span>
+            </div>
+            <p class="project-name">Inside Out — Verge Aero Drone Show &amp; Projection Installation</p>
+            <p class="project-desc">Designed and produced large-scale projection visuals and a synchronized drone light show for the UT Austin AET student showcase — the first drone show of its kind on the Forty Acres, in collaboration with Verge Aero. Responsible for visual content design, spline-based drone flight path choreography, and timing animations to a live musical score. Coordinated the projection lighting content alongside the drone performance for a unified live audience experience.</p>
+            <div class="project-link-row">
+              <a href="https://youtu.be/xwgEgJcIYOI" class="project-link" target="_blank" rel="noopener">Watch Full Show ↗</a>
+              <a href="https://www.instagram.com/reel/C7RxJ8jBjRd/" class="project-link" target="_blank" rel="noopener">Instagram Reel ↗</a>
             </div>
           </div>
         </div>
@@ -925,30 +1023,11 @@
           </div>
         </div>
 
-        <!-- Ranger Raccoon -->
-        <div class="project-card" data-tags="game">
-          <div class="project-img-wrap">
-            <img src="https://static.wixstatic.com/media/d0e373_6dda6a9de52049a48bf3d2473311b417~mv2.png" alt="Ranger Raccoon" loading="lazy">
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">Game Dev</span>
-              <span class="project-tag">Unity</span>
-              <span class="project-tag">Grant-Funded</span>
-            </div>
-            <p class="project-name">The Adventures of Ranger Raccoon</p>
-            <p class="project-desc">Technical developer on a UT Austin Health IT SPARK Grant-funded respiratory health game. Designed minigame mechanics integrating gameplay with a confidential medical device, collaborating with a 10-member interdisciplinary team.</p>
-            <div class="project-link-row">
-              <a href="https://www.notion.so/The-Adventures-of-Ranger-Raccoon-HQ-2-0-6a4781f3b2554aaab887bc28dac091a9" class="project-link" target="_blank" rel="noopener">Project Docs ↗</a>
-              <a href="https://youtu.be/ZIG-dgIBAoY" class="project-link" target="_blank" rel="noopener">Final Trailer ↗</a>
-            </div>
-          </div>
-        </div>
-
         <!-- Eve Rig Animation -->
         <div class="project-card" data-tags="animation">
           <div class="project-img-wrap">
-            <img src="https://static.wixstatic.com/media/d0e373_c76f1d08eae1444d8238639037240113~mv2.png" alt="Eve Rig Animation" loading="lazy">
+            <img src="https://img.youtube.com/vi/uGaT0_sXV3Q/maxresdefault.jpg" alt="Eve Rig Animation" loading="lazy"
+              onerror="this.src='https://img.youtube.com/vi/uGaT0_sXV3Q/hqdefault.jpg'">
           </div>
           <div class="project-body">
             <div class="project-tags">
@@ -992,22 +1071,6 @@
             </div>
             <p class="project-name">Nasus' Revenge</p>
             <p class="project-desc">3D desert exploration game with a procedurally generated open world. Implemented traversal mechanics, AI behaviors, and dynamic weather systems using UE5 Blueprints, focused on environmental storytelling.</p>
-          </div>
-        </div>
-
-        <!-- Inside Out Drone Show -->
-        <div class="project-card" data-tags="3d">
-          <div class="project-img-wrap">
-            <img src="https://static.wixstatic.com/media/d0e373_985212432f3743babf62ef556fddf9a5~mv2.jpg" alt="Inside Out Drone Show" loading="lazy">
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">3D Art</span>
-              <span class="project-tag">Installation</span>
-              <span class="project-tag">Verge Aero</span>
-            </div>
-            <p class="project-name">Inside Out — Verge Aero Drone Show</p>
-            <p class="project-desc">Large-scale projection visuals and synchronized drone show for the UT Austin AET student showcase. Designed spline flight paths and timed animations to musical beats using Verge Aero software.</p>
           </div>
         </div>
 
@@ -1234,6 +1297,35 @@
 
       init();
       loop();
+    })();
+
+    // NDA card mini star field
+    (function() {
+      const c = document.getElementById('nda-stars');
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      function resize() { c.width = c.offsetWidth; c.height = c.offsetHeight; }
+      resize();
+      const stars = Array.from({length:120}, () => ({
+        x: Math.random(), y: Math.random(),
+        r: Math.random() * 1.2 + 0.3,
+        o: Math.random() * 0.6 + 0.2,
+        t: Math.random() * Math.PI * 2
+      }));
+      function draw() {
+        ctx.clearRect(0,0,c.width,c.height);
+        const now = Date.now() / 3000;
+        stars.forEach(s => {
+          const alpha = s.o * (0.7 + 0.3 * Math.sin(now + s.t));
+          ctx.beginPath();
+          ctx.arc(s.x * c.width, s.y * c.height, s.r, 0, Math.PI*2);
+          ctx.fillStyle = `rgba(200,220,255,${alpha})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+      window.addEventListener('resize', resize);
     })();
 
     // Nav: add .scrolled class on scroll
